@@ -1,0 +1,52 @@
+<div class="outer">
+  <div class="inner">
+    <h1 style="padding: 10px; text-align: center">{{titleText}}</h1>
+    <form [formGroup]="taskForm" (ngSubmit)="submit()">
+      <label>Name:</label>
+      <input type="text" formControlName="name" required maxlength="{{TASK_NAME_MAX_LENGTH}}"
+             placeholder="Name">
+      <br>
+      <label>Description:</label>
+      <br>
+      <textarea type="text" formControlName="description" maxlength="{{TASK_DESCRIPTION_MAX_LENGTH}}"
+                placeholder="Description"></textarea>
+      <br>
+      <label>Parent-Task (-1 for none):</label>
+      <input type="number" formControlName="root_task_id" placeholder="#0000" required>
+      <br>
+      <label>Progress-State:</label>
+      <select formControlName="progress_state_raw" required>
+        <option *ngFor="let progress_state of progressStates"
+                value="{{progress_state}}">{{progressStatesLabelMapping[progress_state]}}</option>
+      </select>
+      <br>
+      <label>Due-Date:</label>
+      <input type="date" formControlName="due_dateString" required>
+      <br>
+      <label>Time estimated:</label>
+      <input type="number" formControlName="time_estimate_sec" required>
+      <label>Seconds</label>
+      <br>
+      <label>Priority (0-9):</label>
+      <input type="number" formControlName="priority" required
+             [maxlength]="TASK_MAX_LENGTH_PRIORITY_INPUT" [min]="TASK_MIN_PRIORITY" [max]="TASK_MAX_PRIORITY">
+      <br>
+      <div style="bottom: 10px;">
+        <button style="margin-left: 0" type="submit"
+                [disabled]="(!taskForm.valid || !isRootTaskValid())">{{submitButtonText}}</button>
+        <button type="button" (click)="reset()" *ngIf="isResetEnabled">{{resetButtonText}}</button>
+        <button type="button" (click)="cancel()">Cancel and Home</button>
+        <br>
+        <p>
+          <label class="error_label" *ngIf="!isSubmitRequestOK">
+            The creation process caused an error, please try again later
+          </label>
+        </p>
+      </div>
+    </form>
+    <!--
+    <div class="dataclass">formula.value: {{taskForm.value | json}}, {{newTask.id}}</div>
+    <div class="dataclass">formula.valid: {{taskForm.valid}} rootTaskValid: {{isRootTaskValid()}}</div>
+    !-->
+  </div>
+</div>

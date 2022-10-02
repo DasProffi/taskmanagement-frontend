@@ -1,0 +1,27 @@
+<app-top-banner [showLogin]="false"></app-top-banner>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <table style="margin: 12px 12px;">
+    <tr>
+      <td>
+        <label>Name (or E-Mail):</label>
+      </td>
+      <td>
+        <input style="margin: 0 10px;padding-right: 22px" type="text" formControlName="name" required maxlength="128" placeholder="Name/E-Mail" autocomplete="username">
+      </td>
+    </tr>
+    <tr style="height: 10px"></tr>
+    <tr>
+      <td>
+        <label>Password:</label>
+      </td>
+      <td>
+        <input style="margin: 0 10px;padding-right: 22px" [type]="hidePassword ? 'password':'text'" formControlName="password"
+               required maxlength="128" autocomplete="current-password">
+        <i [class]="hidePassword ? 'fas fa-eye':'fas fa-eye-slash'" (click)="changePasswordVisibility()"></i>
+      </td>
+    </tr>
+  </table>
+  <button style="margin-left: 12px" type="submit">Login</button>
+</form>
+<br>
+<button style="margin-left: 12px" (click)="register()">Register new Account</button>

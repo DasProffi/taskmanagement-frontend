@@ -1,0 +1,18 @@
+<app-top-banner [bannerText]="'Taskmanagement'" [currentHomeLink]="'/task/home'"></app-top-banner>
+<div style="margin: 8px;">
+  <h2>Here are the tasks created so far: </h2>
+
+  <app-task-list-tile *ngFor="let task of getTasks()" [task]="task" [depth]="0">
+  </app-task-list-tile>
+  <div style="height: 20px"></div>
+  <button style="margin-left: 0" (click)="newEntreClick()">New Entre</button>
+  <button (click)="deleteAll()">Delete all Tasks</button>
+  <div *ngIf="debug">
+    <br>
+    <h3>Debug Options:</h3>
+    <button (click)="deleteLastEntreClick()" style="margin-left: 0">Delete last Entre</button>
+    <button (click)="updateFirstClick()">Update first Entre</button>
+    <button (click)="logRootTasks()">Log Root-Tasks</button>
+    <button (click)="logAllTasks()">Log all Tasks</button>
+  </div>
+</div>

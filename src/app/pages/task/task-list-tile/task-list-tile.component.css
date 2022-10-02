@@ -1,0 +1,28 @@
+.outer {
+  border: 1px solid var(--global-color-accent);
+  border-radius: 5px;
+}
+
+.main-row {
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  border: 1px solid var(--global-color-accent);
+  align-items: center;
+  line-height: 2.5;
+}
+
+.name{
+  flex: 1 100px;
+  margin-right: 8px;
+}
+
+.title{
+  flex: 3 300px;
+}
+
+.subtasks-box{
+  flex-direction: row-reverse;
+  padding-left: 5%;
+  width: 95%;
+}

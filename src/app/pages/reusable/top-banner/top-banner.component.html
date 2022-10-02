@@ -1,0 +1,10 @@
+<div class="banner">
+  <img class="logo" src="../../../../favicon.ico" (click)="logoClicked()" alt="Logo-Homebutton">
+  <div class="banner-row" style="flex-direction: row">
+    <h1 style="margin: 0 auto; text-align: center;" (click)="bannerClicked()">
+      <strong>{{bannerText}}</strong>
+    </h1>
+  </div>
+  <button *ngIf="isInLoginMode() && showLogin" class="login-button" type="button" (click)="loginClicked()">Login</button>
+  <button *ngIf="!isInLoginMode() && showLogin" class="login-button" type="button" (click)="logoutClicked()">Logout</button>
+</div>

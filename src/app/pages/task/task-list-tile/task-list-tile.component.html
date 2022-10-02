@@ -1,0 +1,40 @@
+<div class="outer">
+  <div class="main-row">
+    <button *ngIf="depth >= TASK_MAX_SUBTASKS || task.subtasks.length <= 0" class="material-icons color_disabled"
+            mat-icon-button aria-label="Open">
+      <mat-icon>list</mat-icon>
+    </button>
+    <button *ngIf="depth < TASK_MAX_SUBTASKS && task.subtasks.length > 0" (click)="changeDisplaySubtasks()"
+            class="material-icons color_accent" mat-icon-button aria-label="Open">
+      <mat-icon>list</mat-icon>
+    </button>
+    <div class="name">
+      <strong>#{{task.id}} {{task.name}}</strong>
+    </div>
+    <div class="title">{{task.description}}</div>
+    <button (click)="updateProgressState(ProgressState.not_started)" mat-icon-button aria-label="Not Started">
+      <mat-icon *ngIf="task.notStated" class="material-icons color_orange">remove_circle_outline</mat-icon>
+      <mat-icon *ngIf="!task.notStated" class="material-icons color_disabled">remove_circle_outline</mat-icon>
+    </button>
+    <button (click)="updateProgressState(ProgressState.in_progress)" mat-icon-button aria-label="In Progress">
+      <mat-icon *ngIf="task.inProgress" class="material-icons color_yellow">play_arrow</mat-icon>
+      <mat-icon *ngIf="!task.inProgress" class="material-icons color_disabled">play_arrow</mat-icon>
+    </button>
+    <button (click)="updateProgressState(ProgressState.is_finished)" mat-icon-button aria-label="Finished">
+      <mat-icon *ngIf="task.isFinished" class="material-icons color_green">check</mat-icon>
+      <mat-icon *ngIf="!task.isFinished" class="material-icons color_disabled">check</mat-icon>
+    </button>
+    <button (click)="createSubtask()" mat-icon-button class="material-icons color_primary" aria-label="add Subtask">
+      <mat-icon>note_add</mat-icon>
+    </button>
+    <button (click)="update()" mat-icon-button class="material-icons color_primary" aria-label="open">
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+    <button (click)="delete()" mat-icon-button class="material-icons color_red" aria-label="delete">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div class="subtasks-box" *ngIf="task.isDisplayed && depth < TASK_MAX_SUBTASKS && task.subtasks.length > 0">
+    <app-task-list-tile *ngFor="let task of task.subtasks" [task]="task" [depth]="(depth+1)"></app-task-list-tile>
+  </div>
+</div>

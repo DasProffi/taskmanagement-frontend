@@ -1,0 +1,51 @@
+<app-top-banner [bannerText]="'Register a new Account'" [currentHomeLink]="'/registration'"
+                [loginForwardLink]="forwardLink"></app-top-banner>
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <table style="margin: 12px 12px;">
+    <tr>
+      <td>
+        <label>Name:</label>
+      </td>
+      <td>
+        <input style="margin: 0 10px;padding-right: 22px" type="text" formControlName="name" required maxlength="64"
+               placeholder="Name" autocomplete="name" minlength="nameMinLength">
+      </td>
+    </tr>
+    <tr style="height: 10px"></tr>
+    <tr>
+      <td>
+        <label>E-Mail:</label>
+      </td>
+      <td>
+        <input style="margin: 0 10px;padding-right: 22px" type="text" formControlName="email"
+               required maxlength="128" placeholder="E-Mail" autocomplete="username" minlength="10">
+      </td>
+    </tr>
+    <tr style="height: 10px"></tr>
+    <tr>
+      <td>
+        <label>Password:</label>
+      </td>
+      <td>
+        <input style="margin: 0 10px;padding-right: 22px" [type]="hidePassword1 ? 'password':'text'" formControlName="password1"
+               required maxlength="128" autocomplete="new-password" minlength="passwordMinLength">
+        <i [class]="hidePassword1 ? 'fas fa-eye':'fas fa-eye-slash'" (click)="changePasswordVisibility(1)"></i>
+      </td>
+    </tr>
+    <tr style="height: 10px"></tr>
+    <tr>
+      <td>
+        <label>Repeat Password:</label>
+      </td>
+      <td>
+        <input style="margin: 0 10px;padding-right: 22px" [type]="hidePassword2 ? 'password':'text'" formControlName="password2"
+               required maxlength="128" autocomplete="new-password" minlength="passwordMinLength">
+        <i [class]="hidePassword2 ? 'fas fa-eye':'fas fa-eye-slash'" (click)="changePasswordVisibility(2)"></i>
+      </td>
+    </tr>
+  </table>
+  <button style="margin-left: 12px" type="submit" [disabled]="!isFullyValid()">Register new Account</button>
+</form>
+<br>
+<button style="margin-left: 12px" (click)="login()">Login to existing Account</button>
+

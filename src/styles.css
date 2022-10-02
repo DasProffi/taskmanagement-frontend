@@ -1,0 +1,128 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --global-banner-height: 42px;
+  --global-margin-horizonatl: 12px;
+  --global-margin-vertical: 8px;
+  --global-rounded-corners: 6px;
+  --global-color-primary: #dbdbdb;
+  --global-color-accent: #2288ff;
+  --global-color-accent-secondary: #8f1383;
+  --global-color-secondary: #08284d;
+  --global-color-tertiary: darkslateblue;
+  --global-color-quartary: #1a4bc7;
+  --global-color-disabled: grey;
+  --global-color-warn: red;
+}
+
+.material-icons.color_green { color: #00FF00; }
+.material-icons.color_red { color: red; }
+.material-icons.color_orange { color: orange; }
+.material-icons.color_yellow { color: #FFFF00; }
+.material-icons.color_accent { color: var(--global-color-accent); }
+.material-icons.color_primary { color: var(--global-color-primary); }
+.material-icons.color_disabled { color: var(--global-color-disabled); }
+
+.error_label {
+  color: red;
+}
+
+/* Links */
+a {
+  color: var(--global-color-accent);
+}
+
+a:visited {
+  color: var(--global-color-accent-secondary);
+}
+
+a:hover {
+  color: var(--global-color-quartary);
+}
+
+/* input */
+input{
+  background-color: var(--global-color-secondary);
+  color: var(--global-color-primary);
+  border: 0;
+  outline-style: solid;
+  outline-color: var(--global-color-accent);
+  border-radius: var(--global-rounded-corners);
+  text-align: right;
+  padding: 2px 10px;
+  margin-bottom: 16px;
+}
+
+input[type=password] {
+  text-align: left;
+}
+
+input[type=text] {
+  margin-left: var(--global-margin-horizonatl);
+  text-align: left;
+}
+
+input[type=date] {
+  margin-left: var(--global-margin-horizonatl);
+  margin-right: var(--global-margin-horizonatl);
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+input[type=number] {
+  margin-left: var(--global-margin-horizonatl);
+  margin-right: var(--global-margin-horizonatl);
+}
+
+select {
+  margin-left: var(--global-margin-horizonatl);
+  margin-right: var(--global-margin-horizonatl);
+  margin-bottom: 16px;
+  color: var(--global-color-primary);
+  background-color: var(--global-color-secondary);
+  outline-style: solid;
+  outline-color: var(--global-color-accent);
+  border-radius: var(--global-rounded-corners);
+}
+
+button {
+  margin-left: var(--global-margin-horizonatl);
+  border: 0;
+  background-color: var(--global-color-accent);
+  color: var(--global-color-primary);
+  padding: 8px;
+  font-weight: bold;
+  border-radius: var(--global-rounded-corners);
+}
+
+button:disabled {
+  background-color: var(--global-color-disabled);
+}
+
+textarea {
+  min-height: 100px;
+  max-height: 200px;
+  min-width: 200px;
+  max-width: 500px;
+  height: 40%;
+  width: 90%;
+  resize: none;
+  background-color: var(--global-color-secondary);
+  color: var(--global-color-primary);
+  border: 0;
+  outline-style: solid;
+  outline-color: var(--global-color-accent);
+  border-radius: var(--global-rounded-corners);
+  margin: var(--global-margin-vertical) 0;
+  padding: 2px 10px;
+}
+
+html, body {
+  font-size: 16px;
+  height: 100%;
+  color: var(--global-color-primary);
+  background-color: var(--global-color-secondary);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,41 @@
+.banner{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  width: 100%;
+  height: var(--global-banner-height);
+  left: 0;
+  top: 0;
+  background-color: var(--global-color-tertiary);
+}
+
+.banner-row {
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.logo{
+  left: 0;
+  top: 0;
+  padding: 1px;
+  margin: 0;
+  position: absolute;
+  height: calc(var(--global-banner-height) - 2px);
+  width: calc(var(--global-banner-height) - 2px);
+  z-index: 2;
+}
+
+.login-button{
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  min-width: 80px;
+  position: absolute;
+  border-radius: 0;
+  z-index: 3;
+}
